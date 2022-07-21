@@ -1,0 +1,55 @@
+<div class="content">
+
+  <table class="content_inner">
+
+      <h2>予約内容確認</h2>
+      <tr>
+        <h3>
+          ¥<%= @room.price %>/日
+        </h3>
+      </tr>
+      <tr>
+        <td>開始日</td>
+        <td><%= @reservation.start_day %></td>
+      </tr>
+
+      <tr>
+        <td>終了日</td>
+        <td><%= @reservation.end_day %></td>
+      </tr>
+
+      <tr>
+        <td>使用日数</td>
+        <td><%= @days %></td>
+      </tr>
+
+      <tr>
+        <td>人数</td>
+        <td><%= @reservation.people %>人</td>
+      </tr>
+
+      <tr>
+        <td>合計金額</td>
+        <td>
+          <%= @price %>
+        </td>
+      </tr>
+
+      <tr>
+        <%= form_with model: @reservation do |f| %>
+          <%= f.hidden_field :room_id, value: @room.id %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :people %>
+          <%= f.hidden_field :start_day %>
+          <%= f.hidden_field :end_day %>
+          <td><%= f.submit "予約を確定する", class:"reservation-btn" %></td>
+        <% end %>
+      </tr>
+      <tr>
+        <%= link_to "ルーム詳細に戻る", room_path(@room) %>
+      </tr>
+
+  </table>
+
+  
+</div>

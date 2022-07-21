@@ -11,6 +11,52 @@
   </head>
 
   <body>
+    <header class="header">
+      <div class="h-container">
+        <div class="h-nav_left">
+          <%= link_to image_tag("logo.png"), "/" %>
+          <div class="from-family">
+            <input type="text" class="from" placeholder="エリア">
+            <input type="text" class="from" placeholder="キーワード">
+          </div>
+        </div>
+        <% if user_signed_in? %>
+          <div class="h-nav_right">
+            <div class="h-nav_user">
+              <%= current_user.name %>
+            </div>
+            <div class="h-nav_image">
+              <% if current_user.image? %>
+                <%= image_tag current_user.image.url, size:"60x60", class:"h-nav_icon" %>
+              <% else %>
+                <%= image_tag 'default_icon.jpeg', size:"60x60", class:"h-nav_icon" %>
+              <% end %>
+            </div>
+            <ul class="h-nav_manu">
+              <li><%= link_to "ルーム登録", new_room_path %></li>
+              <li><%= link_to "予約済みルーム一覧", reservations_path %></li>
+              <li><%= link_to "登録済みルーム一覧", rooms_path %></li>
+              <li><%= link_to "設定", user_path(current_user) %></li></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, data: { "turbo-method": :delete } %></li>
+            </ul>
+          </div>
+        <% else %>
+          <div class="h-nav_btn">
+            <%= link_to "ログイン", new_user_session_path, class: "nav_login" %>
+            <%= link_to "登録する", new_user_registration_path, class: "nav_register" %>
+          </div>
+        <% end %>
+      </div>
+    </header>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
+
+    <footer>
+      <p>© 2022 POTEPAN.INC.</p>
+    </footer>
+
   </body>
 </html>

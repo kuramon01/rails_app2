@@ -1,0 +1,94 @@
+.room-container {
+  width: 100%;
+  display: flex;
+}
+
+.room-list {
+  padding: 30px 15px;
+  p {
+    font-size: large;
+    border-right: 3px solid #4a90e2;
+    padding-right: 10px;
+  }
+}
+
+.room-content {
+  padding: 30px 30px 30px 45px;
+  background-color: #F6F8F9;
+}
+
+table {
+  border-collapse:  collapse;
+}
+
+.table {
+  background-color: #fff;
+  padding: 15px;
+}
+
+table tr {
+  padding: 10px 20px;
+  border-top: 1px solid #b9b9b9;
+  border-bottom: 1px solid #b9b9b9;
+}
+
+table td {
+  padding: 10px 20px;
+}
+
+
+.price-icon::before {
+  content: "¥";
+  padding-right: 3px;
+}
+
+
+.room_btn {
+  padding: 0 50px;
+  height: 35px;
+  color: #fff;
+  background-color: #4a90e2;
+  border: none;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 3px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #1c76dd;
+    box-shadow:0px 0px 10px #b2b0b0;
+    transition : .5s; /*ふわっとさせる指定*/
+  }
+}
+
+.red-box {
+  color: #fff;
+  background-color: #ff0000a8;
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 4px;
+  margin: 0 5px;
+}
+
+
+.room-show {
+  display: flex;
+  margin: 0 100px;
+  justify-content: space-between;
+  padding: 30px 0;
+}
+
+.room-show_about {
+  padding: 0 15px;
+}
+
+.image_size {
+  width: 100%;
+}
+
+.reserve_room {
+  padding: 0 0 50px 0;
+}
+

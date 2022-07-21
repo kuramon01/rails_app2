@@ -1,0 +1,67 @@
+<div class="room-container">
+
+  <div class="room-list">
+    <p class=""><%= link_to "基本情報", new_room_path %></p>
+  </div>
+
+  <div class="room-content">
+    <%= form_with model: @room do |f| %>
+      <div class="table">
+        <table> 
+          <h3>ルーム登録</h3>
+      
+          <tr class="table-item">
+            <td><%= f.label :name, "ルーム名" %><span class="red-box">必須</span></td>
+            <td>
+              <%= f.text_field :name, placeholder: "ルーム名を入力" %>
+              <% if @room.errors.any? %>
+                <p style="color: red;"><%= @room.errors.full_messages_for(:name).first %>
+              <% end %>
+            </td>
+          </tr>
+          <tr class="table-item">
+            <td><%= f.label :introduction, "ルーム紹介文" %><span class="red-box">必須</span></td>
+            <td>
+              <%= f.text_area :introduction, placeholder: "ルーム説明を入力" %>
+              <% if @room.errors.any? %>
+                <p style="color: red;"><%= @room.errors.full_messages_for(:introduction).first %>
+              <% end %>
+            </td>
+          </tr>
+          <tr class="table-item">
+            <td><%= f.label :price, "料金設定" %><span class="red-box">必須</span></td>
+            <td>
+              <%= f.number_field :price, placeholder: "一日あたりの料金を入力" %>
+              <% if @room.errors.any? %>
+                <p style="color: red;"><%= @room.errors.full_messages_for(:price).first %>
+              <% end %>
+            </td>
+          </tr>
+          <tr class="table-item">
+            <td><%= f.label :address, "住所" %><span class="red-box">必須</span></td>
+            <td>
+              <%= f.text_area :address, placeholder: "住所を入力" %>
+              <% if @room.errors.any? %>
+                <p style="color: red;"><%= @room.errors.full_messages_for(:address).first %>
+              <% end %>
+            </td>
+          </tr>
+          <tr class="table-item">
+            <td><%= f.label :img_name, "ルーム画像" %><span class="red-box">必須</span></td>
+            <td>
+              <%= f.file_field :img_name, accept: 'image/*' %>
+              <% if @room.errors.any? %>
+                <p style="color: red;"><%= @room.errors.full_messages_for(:img_name).first %>
+              <% end %>
+            </td>
+          </tr>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <tr class="">
+            <td><%= f.submit "登録する", class:'room_btn' %></td>
+          </tr>
+        </table>
+      </div>
+    <% end %>
+
+  </div>
+</div>
