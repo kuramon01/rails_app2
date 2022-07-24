@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   def index
-    @rooms = Room.all
+    @rooms = Room.where(user_id: current_user.id)
   end
 
   def new
@@ -9,6 +9,7 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.new(room_params)
+    @room.user_id = current_user.id
     if @room.save
       flash[:notice] = "ルーム登録完了しました"
       redirect_to :rooms
@@ -22,10 +23,20 @@ class RoomsController < ApplicationController
     @reservation = Reservation.new
   end
 
-  def edit
+  def result
+    if params[:address] == ''
+      @addresses = Room.all
+    elsif
+      @addresses = Room.where('address LIKE ?','%' + params[:address] + '%' )
+    end
   end
 
-  def update
+  def search
+    if params[:search] == ''
+      @searchs = Room.all
+    else
+      @searchs = Room.where('name LIKE ? OR introduction LIKE ? OR address LIKE ?','%'+params[:search]+'%','%'+params[:search]+'%','%'+params[:search]+'%')
+    end
   end
 
   def destroy
@@ -33,6 +44,6 @@ class RoomsController < ApplicationController
 
   private
   def room_params
-    params.require(:room).permit(:name, :introduction, :price, :address, :img_name)
+    params.require(:room).permit(:name, :introduction, :price, :address)
   end
 end

@@ -5,8 +5,10 @@
       <div class="main-search_form">
         <h2>Potepan Shareでまだ体験<br>したことのない旅をしよう</h2>
         <p>エリア</p>
-        <input type="text"  placeholder="東京">
-        <button>探す</button>
+        <%= form_with url: result_path, method: :get, local: true do |f| %>
+          <%= f.search_field :address, class: "eria-form", placeholder: "例：東京" %><br>
+          <%= f.submit '探す', class: "login_btn" %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -16,24 +18,28 @@
       <h2>おすすめのエリア</h2>
       <div class="eria-items">
         <div class="eria-item">
-          <%= link_to  %>
+          <%= link_to result_path(address: "東京"), method: :post, local: true do %>
             <span class="eria-name">東京</span>
             <img src="/assets/img_tokyo.jpeg" alt="東京">
+          <% end %>
         </div>
         <div class="eria-item">
-          <%= link_to  %>
-          <span class="eria-name">大阪</span>
-          <img src="/assets/img_osaka.jpeg" alt="大阪">
+          <%= link_to result_path(address: "大阪"), method: :post, local: true do %>
+            <span class="eria-name">大阪</span>
+            <img src="/assets/img_osaka.jpeg" alt="大阪">
+          <% end %>
         </div>
         <div class="eria-item">
-          <%= link_to  %>
-          <span class="eria-name">京都</span>
-          <img src="/assets/img_kyoto.jpeg" alt="京都">
+          <%= link_to result_path(address: "京都"), method: :post, local: true do %>
+            <span class="eria-name">京都</span>
+            <img src="/assets/img_kyoto.jpeg" alt="京都">
+          <% end %>
         </div>
         <div class="eria-item">
-          <%= link_to  %>
-          <span class="eria-name">札幌</span>
-          <img src="/assets/img_sapporo.jpeg" alt="札幌">
+          <%= link_to result_path(address: "札幌"), method: :post, local: true do %>
+            <span class="eria-name">札幌</span>
+            <img src="/assets/img_sapporo.jpeg" alt="札幌">
+          <% end %>
         </div>
       </div>
     </div>

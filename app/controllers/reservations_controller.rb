@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.where(user_id: current_user.id)
   end
 
   def new
@@ -8,25 +8,25 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @price = @room.price * @reservation.people * (@reservation.end_day - @reservation.start_day).to_i
     @days = (@reservation.end_day - @reservation.start_day).to_i
-    if @reservation.invalid?
-			render :new, status: :unprocessable_entity
-		end
   end
-
+  
   def create
     @room = Room.find(params[:reservation][:room_id])
     @reservation = Reservation.new(reservation_params)
     @price = @room.price * @reservation.people * (@reservation.end_day - @reservation.start_day).to_i
     if @reservation.save
-      @room = Room.find(params[:reservation][:room_id])
+      binding.pry
+      flash[:notice] = "予約を確定しました"
       redirect_to reservation_path(@reservation.id)
     else
+      binding.pry
       render :new, status: :unprocessable_entity
     end
   end
 
   def show
-    @price = @room.price * @reservation.people * (@reservation.end_day - @reservation.start_day).to_i
+    @reservation = Reservation.find(params[:id])
+    @price = @reservation.room.price * @reservation.people * (@reservation.end_day - @reservation.start_day).to_i
   end
 
   private

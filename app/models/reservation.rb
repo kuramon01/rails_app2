@@ -3,6 +3,7 @@ class Reservation < ApplicationRecord
   validates :end_day, presence: true
   validates :people, numericality: true
 
-  belongs_to :user
-  belongs_to :room
+  mount_uploader :img_name, ImageUploader
+  belongs_to :user, optional: true
+  belongs_to :room, optional: true
 end

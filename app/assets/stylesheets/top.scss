@@ -39,6 +39,11 @@ header {
   align-items: center;
 }
 
+.from-family {
+  display: flex;
+  align-items: center;
+}
+
 .h-nav_user {
   margin-right: 30px;
 }
@@ -50,6 +55,34 @@ header {
 .h-nav_btn {
   color: #fff;
 
+}
+
+.menu {
+  background-color: #fff;
+  padding: 20px;
+  position: absolute;
+  right: 0;
+  top: 55px;
+  margin-right: 10px;
+  border: 1px solid rgb(7, 6, 6);
+}
+
+.h-nav_right input {
+  display: none;
+}
+
+.h-nav_right .menu {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.8s;
+}
+
+.h-nav_right input:checked ~ .menu {
+  padding: 10px;
+  height: auto;
+  opacity: 1;
 }
 
 .nav_login {
@@ -72,14 +105,12 @@ header {
   cursor: pointer;
 }
 
-
 .notice {
   background-color: aquamarine;
   color: #fff;
   text-align: center;
   margin-top: -16px;
 }
-
 
 
 // メイン
@@ -110,7 +141,6 @@ header {
   border-radius: 5px;
 }
   
-
 .top-container {
   // max-width: 1140px;
   margin: auto;
@@ -152,6 +182,32 @@ header {
   height: 360px;
   object-fit: cover;
   border-radius: 5px;
+}
+
+.eria-form {
+  width: 305px;
+  height: 35px;
+}
+
+.login_btn {
+  width: 305px;
+  height: 35px;
+  color: #fff;
+  background-color: #4a90e2;
+  border: none;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 3px;
+  padding: 3px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #1c76dd;
+    box-shadow:0px 0px 10px #b2b0b0;
+    transition : .5s; /*ふわっとさせる指定*/
+  }
 }
   
   

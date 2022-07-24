@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   resources :users
   resources :rooms
   resources :reservations
-  post "reservations/new" ,to: "reservations#new"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
+  get 'result' => 'rooms#result'
+  get 'search' => 'rooms#search'
   # Defines the root path route ("/")
   # root "articles#index"
 end

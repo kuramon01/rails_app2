@@ -23,7 +23,7 @@
   </div>
 
   <div class="reserve_room">
-    <%= form_for @reservation, method: :post, url: new_reservation_path do |f| %>
+    <%= form_with model: @reservation, method: :get, url: new_reservation_path do |f| %>
       <%= f.hidden_field :room_id, value: @room.id %>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <h5>

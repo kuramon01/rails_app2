@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   # ログイン済ユーザーのみにアクセスを許可
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, only: [:/]
 
   # deviseコントローラーにストロングパラメータを追加
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :profile])
   end
 
+  private
   def after_sign_out_path_for(resource)
     root_path # ログアウト後に遷移するpathを設定
   end
