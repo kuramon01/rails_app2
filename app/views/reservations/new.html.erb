@@ -1,7 +1,7 @@
 <div class="content">
 
-  <table class="content_inner">
-    <%= form_with model: @reservation do |f| %>
+  <%= form_with model: @reservation do |f| %>
+    <table class="content_inner">
       <h2>予約内容確認</h2>
       <tr>
         <h3>
@@ -49,8 +49,7 @@
       <tr>
         <%= link_to "ルーム詳細に戻る", room_path(@room) %>
       </tr>
-    <% end %>
-  </table>
-
+    </table>
+  <% end %>
   
 </div>

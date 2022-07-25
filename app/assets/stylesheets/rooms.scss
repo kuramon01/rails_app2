@@ -85,8 +85,28 @@ table td {
   width: 100%;
 }
 
-.reserve_room {
-  padding: 0 0 50px 0;
+.reserve-room {
+  padding: 15px;
+  border: 1px solid #b2b0b0;
+}
+
+.reserve-from {
+  box-sizing:border-box;
+  display: block;
+  width: 100%;
+}
+
+.login_btn {
+  display: inline-block;
+  height: 35px;
+  color: #fff;
+  background-color: #4a90e2;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 3px;
+  text-align: center;
+  cursor: pointer;
 }
 
 

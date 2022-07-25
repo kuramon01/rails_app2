@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
+  root 'top#index'
   
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+  devise_for :users, controllers: { registrations: 'users/registrations',sessions: 'users/sessions' }
   # get 'users/show'
   # get 'users/profile' => "users#edit"
-  root 'top#index'
   resources :users
   resources :rooms
   resources :reservations

@@ -19,7 +19,7 @@
             <% if reservation.room.img_name? %>
               <%= image_tag reservation.room.img_name.url, size:'240x150' %>
             <% else %>
-              <%= image_tag '/default_room.jpeg', size:'240x150' %>
+              <%= image_tag 'default_room01.jpeg', size:'240x150' %>
             <% end %>
           </td>
           <td><%= link_to reservation.room.name, room_path(reservation) %></td>

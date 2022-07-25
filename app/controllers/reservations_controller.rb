@@ -15,11 +15,9 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @price = @room.price * @reservation.people * (@reservation.end_day - @reservation.start_day).to_i
     if @reservation.save
-      binding.pry
       flash[:notice] = "予約を確定しました"
       redirect_to reservation_path(@reservation.id)
     else
-      binding.pry
       render :new, status: :unprocessable_entity
     end
   end
