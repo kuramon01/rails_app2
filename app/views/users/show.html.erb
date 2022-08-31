@@ -1,0 +1,32 @@
+<div class="profile-container">
+
+  <div class="profile-list">
+    <p class="p-account"><%= link_to "アカウント", user_path %></p>
+    <p><%= link_to "プロフィール",edit_user_path  %></p>
+  </div>
+  
+  <div class="profile-content">
+
+    <table class=""> 
+      <tr class="">
+          <h3>アカウント</h3>
+      </tr>
+
+      <tr class="">
+        <td width="30%">メールアドレス</td>
+        <td width="70%"><%= @user.email %></td>
+      </tr>
+
+      <tr class="">
+        <td width="30%">パスワード</td>
+        <td width="70%">********</td>
+      </tr>
+
+      <tr class="">
+        <td><%= link_to "更新する", :edit_user_registration, class:'login_btn' %></td>
+      </tr>
+    </table>
+      
+  </div>
+
+</div>

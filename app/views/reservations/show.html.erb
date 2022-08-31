@@ -1,0 +1,20 @@
+<h3>予約が完了しました</h3>
+  
+<div class = reservation-show>
+  <%= link_to room_path(@reservation.room_id), class: "index_content" do %>
+    <ul>
+      <li>
+        <p>予約した部屋：<%= @reservation.room.name %></p>
+      </li>
+      <li>
+        <p>開始日：<%= @reservation.start_day %></p>
+      </li>
+      <li>
+        <p>終了日：<%= @reservation.end_day %></p>
+      </li>
+      <li>
+        <p>合計金額<%= @price %>円</p>
+      </li>
+    </ul>
+  <% end %>
+</div>

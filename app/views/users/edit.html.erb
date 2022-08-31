@@ -1,0 +1,61 @@
+<div class="profile-container">
+
+  <div class="profile-list">
+    <p><%= link_to "アカウント", user_path %></p>
+    <p class="p-profile"><%= link_to "プロフィール",edit_user_path %></p>
+  </div>
+  
+  <div class="profile-content">
+
+    <%= form_with model: @user do |f| %>
+      <div class="table">
+      <table> 
+        <h3>プロフィール</h3>
+        <tr class="">
+          <td>
+            <% if @user.image? %>
+              <%= image_tag @user.image.url, size:"100x100",class:"h-nav_icon" %>
+            <% else %>
+              <%= image_tag 'default_icon.jpeg', size:"100x100",class:"h-nav_icon" %>
+            <% end %>
+          </td>
+        </tr>
+        <tr class="table-item">
+          <td width="30%"><%= f.label :image, "アイコン画像" %><span class="red-box">必須</span></td>
+          <td width="70%">
+            <%= f.file_field :image, accept: 'image/*' %>
+            <% if @user.errors.any? %>
+                <p style="color: red;"><%= @user.errors.full_messages_for(:image).first %>
+            <% end %>
+          </td>
+        </tr>
+        <tr class="table-item">
+          <td width="30%"><%= f.label :name, "名前" %><span class="red-box">必須</span></td>
+          <td width="70%">
+            <%= f.text_field :name, placeholder: "名前を入力", required: true %>
+            <% if @user.errors.any? %>
+              <p style="color: red;"><%= @user.errors.full_messages_for(:name).first %>
+            <% end %>
+          </td>
+        </tr>
+        <tr class="table-item">
+          <td width="30%"><%= f.label :profile, "ルーム紹介文" %><span class="red-box">必須</span></td>
+          <td width="70%">
+            <%= f.text_area :profile, placeholder: "自己紹介を入力" %>
+            <% if @user.errors.any? %>
+              <p style="color: red;"><%= @user.errors.full_messages_for(:profile).first %>
+            <% end %>
+          </td>
+        </tr>
+
+        <tr class="">
+          <td><%= f.submit "更新する", class:'login_btn' %></td>
+        </tr>
+
+      </table>
+      </div>
+    <% end %>
+        
+  </div>
+
+</div>

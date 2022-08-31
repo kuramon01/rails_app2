@@ -11,6 +11,62 @@
   </head>
 
   <body>
+    <header class="header">
+      <div class="h-container">
+        <div class="h-nav_left">
+          <%= link_to image_tag("logo.png"), "/" %>
+          <div class="from-family">
+            <%= form_with url: result_path, method: :get, local: true do |f| %>
+              <%= f.search_field :address, placeholder: "エリア" %>
+            <% end %>
+            <%= form_with url: search_path, method: :get, local: true do |f| %>
+              <%= f.search_field :search, placeholder: "キーワード" %>
+            <% end %>
+          </div>
+        </div>
+        <% if user_signed_in? %>
+          <div class="h-nav_right">
+            <div class="h-nav_user">
+              <%= current_user.name %>
+            </div>
+            
+            <div class="h-nav_image">
+              <label for="label1">
+                <% if current_user.image? %>
+                  <%= image_tag current_user.image.url, size:"60x60", class:"h-nav_icon" %>
+                <% else %>
+                  <%= image_tag 'default_icon.jpeg', size:"60x60", class:"h-nav_icon" %>
+                <% end %>
+              </label>
+            </div>
+
+            <input type="checkbox" id="label1" />
+            
+            <ul class="menu" id="h-nav_menu" >
+              <li><%= link_to "ルーム登録", new_room_path %></li>
+              <li><%= link_to "予約済みルーム一覧", reservations_path %></li>
+              <li><%= link_to "登録済みルーム一覧", rooms_path %></li>
+              <li><%= link_to "設定", user_path(current_user) %></li></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, data: { "turbo-method": :delete } %></li>
+            </ul>
+          </div>
+        <% else %>
+          <div class="h-nav_btn">
+            <%= link_to "ログイン", new_user_session_path, class: "nav_login" %>
+            <%= link_to "登録する", new_user_registration_path, class: "nav_register" %>
+          </div>
+        <% end %>
+      </div>
+    </header>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
+
+    <footer>
+      <p>© 2022 POTEPAN.INC.</p>
+    </footer>
+
   </body>
 </html>

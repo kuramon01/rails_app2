@@ -1,0 +1,36 @@
+<div class="room-container">
+  <h2>予約ルーム一覧</h2>
+  <table class="room-index">
+    <thead>
+      <tr>
+        <th>ルーム画像</th>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>合計料金</th>
+        <th>開始日</th>
+        <th>終了日</th>
+        <th>予約確定日</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reservations.each do |reservation| %>
+        <tr>
+          <td>
+            <% if reservation.room.img_name? %>
+              <%= image_tag reservation.room.img_name.url, size:'240x150' %>
+            <% else %>
+              <%= image_tag 'default_room01.jpeg', size:'240x150' %>
+            <% end %>
+          </td>
+          <td><%= link_to reservation.room.name, room_path(reservation) %></td>
+          <td><%= reservation.room.introduction %></td>
+          <td><%= reservation.room.price.to_i * reservation.people.to_i * (reservation.end_day - reservation.start_day).to_i %></td>
+          <td><%= reservation.start_day %></td>
+          <td><%= reservation.end_day %></td>
+          <td><%= reservation.created_at.to_s(:datetime_jp) %></td>
+          <td><%= link_to "キャンセル", reservations_path, data: { turbo_method: :delete, turbo_confirm: "本当にキャンセルしますか？" } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

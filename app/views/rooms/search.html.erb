@@ -1,0 +1,20 @@
+<h2>検索結果：<%= @searchs.count%>件</h2>
+
+<% @searchs.each do |search| %>
+  <div class="room-result">
+    <div class="room-result-content">
+      <%= link_to room_path(search), class: "" do %>
+        <% if search.img_name? %>
+          <%= image_tag search.img_name.url, :size => '200x100', class: 'room-img' %>
+        <% else %>
+          <%= image_tag 'default_room01.jpeg', :size => '200x100', class: 'room-img' %>
+        <% end %>
+        <div class="room-result-about">
+          <p class="room-result-name"><%= search.name %></p>
+          <p class="room-result-eria"><%= search.address %></p>
+          <p class="room-result-price"><%= "¥ #{search.price}" %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

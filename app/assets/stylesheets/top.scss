@@ -1,0 +1,222 @@
+// ::before, ::after{
+//   box-sizing: border-box;
+// }
+
+body {
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+input {
+  padding: 10px;
+}
+
+// ヘッダー
+header {
+  width: 100%;
+  height: 72px;
+  background-color: #000;
+}
+
+.h-container {
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.h-nav_left,.h-nav_right {
+  display: flex;
+  align-items: center;
+}
+
+.from-family {
+  display: flex;
+  align-items: center;
+}
+
+.h-nav_user {
+  margin-right: 30px;
+}
+
+.h-nav_icon {
+  border-radius: 50%;
+}
+
+.h-nav_btn {
+  color: #fff;
+}
+
+.menu {
+  background-color: #fff;
+  padding: 20px;
+  position: absolute;
+  right: 0;
+  top: 55px;
+  margin-right: 10px;
+  border: 1px solid rgb(7, 6, 6);
+}
+
+.h-nav_right input {
+  display: none;
+}
+
+.h-nav_right .menu {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.8s;
+}
+
+.h-nav_right input:checked ~ .menu {
+  padding: 10px;
+  height: auto;
+  opacity: 1;
+}
+
+.nav_login {
+  padding: 10px;
+  height: 40px;
+  color: #fff;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.nav_register {
+  padding: 10px;
+  height: 40px;
+  color: #fff;
+  background-color: #6c757d;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.notice {
+  background-color: aquamarine;
+  color: #fff;
+  text-align: center;
+  margin-top: -8px;
+}
+
+
+// メイン
+.top-main {
+  background: image-url('img_cover_top.jpeg');
+  background-size: cover;
+  height: 650px;
+  margin-top: -16px;
+}
+  
+.main-container {
+  // max-width: 1140px;
+  height: 650px;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+}
+
+.main-search_form {
+  max-width: 50%;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 5px;
+}
+  
+.top-container {
+  // max-width: 1140px;
+  margin: auto;
+  height: 480px;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.eria-container {
+  margin: 50px;
+}
+
+.eria-items {
+  display: flex;
+  justify-content: space-between;
+}
+
+.eria-item {
+  position: relative;
+  width: 22%;
+  overflow: hidden;
+}
+
+.eria-name {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: #fff;
+  bottom: 30px;
+}
+
+.eria-item img {
+  height: 360px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.eria-form {
+  width: 305px;
+  height: 35px;
+}
+
+.login_btn {
+  width: 305px;
+  height: 35px;
+  color: #fff;
+  background-color: #4a90e2;
+  border: none;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 3px;
+  padding: 3px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #1c76dd;
+    box-shadow:0px 0px 10px #b2b0b0;
+    transition : .5s; /*ふわっとさせる指定*/
+  }
+}
+  
+  
+// フッター
+footer {
+  width: 100%;
+  padding: 60px 0;
+  text-align: center;
+  font-size: 13px;
+  background-color: #000;
+  color: #fff;
+  bottom: 0;
+}

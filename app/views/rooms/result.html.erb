@@ -1,0 +1,20 @@
+<h2>検索結果：<%= @addresses.count%>件</h2>
+
+<% @addresses.each do |address| %>
+  <div class="room-result">
+    <div class="room-result-content">
+      <%= link_to room_path(address), class: "" do %>
+        <% if address.img_name? %>
+          <%= image_tag address.img_name.url, :size => '200x100', class: 'room-img' %>
+        <% else %>
+          <%= image_tag 'default_room01.jpeg', :size => '200x100', class: 'room-img' %>
+        <% end %>
+        <div class="room-result-about">
+          <p class="room-result-name"><%= address.name %></p>
+          <p class="room-result-eria"><%= address.address %></p>
+          <p class="room-result-price"><%= "¥ #{address.price}" %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
